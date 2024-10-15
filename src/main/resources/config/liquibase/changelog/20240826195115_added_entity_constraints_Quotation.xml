@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Added the constraints for entity Quotation.
+    -->
+    <changeSet id="20240826195115-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="season_id"
+                                 baseTableName="quotation"
+                                 constraintName="fk_quotation__season_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="season"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="farmer_id"
+                                 baseTableName="quotation"
+                                 constraintName="fk_quotation__farmer_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="farmer"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="product_id"
+                                 baseTableName="quotation"
+                                 constraintName="fk_quotation__product_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="product"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="business_id"
+                                 baseTableName="quotation"
+                                 constraintName="fk_quotation__business_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="business"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="quotation_status_id"
+                                 baseTableName="quotation"
+                                 constraintName="fk_quotation__quotation_status_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="quotation_status"
+                                 />
+    </changeSet>
+</databaseChangeLog>

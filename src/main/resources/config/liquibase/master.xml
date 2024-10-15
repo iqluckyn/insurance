@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+    <property name="floatType" value="float4" dbms="postgresql"/>
+    <property name="clobType" value="clob" dbms="postgresql"/>
+    <property name="blobType" value="blob" dbms="postgresql"/>
+    <property name="uuidType" value="uuid" dbms="postgresql"/>
+    <property name="datetimeType" value="datetime" dbms="postgresql"/>
+
+    <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240826195104_added_entity_Farmer.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240826195105_added_entity_Business.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240826195106_added_entity_BusinessType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240826195107_added_entity_InsuredPolicy.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240826195108_added_entity_PolicyClaim.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240826195109_added_entity_PComponent.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240826195110_added_entity_PolicyComponent.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240826195111_added_entity_Farm.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240826195112_added_entity_Product.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240826195113_added_entity_CropType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240826195114_added_entity_Season.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240826195115_added_entity_Quotation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240826195116_added_entity_QuotationStatus.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20240826195104_added_entity_constraints_Farmer.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240826195105_added_entity_constraints_Business.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240826195107_added_entity_constraints_InsuredPolicy.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240826195108_added_entity_constraints_PolicyClaim.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240826195110_added_entity_constraints_PolicyComponent.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240826195111_added_entity_constraints_Farm.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240826195114_added_entity_constraints_Season.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240826195115_added_entity_constraints_Quotation.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+    <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
+</databaseChangeLog>

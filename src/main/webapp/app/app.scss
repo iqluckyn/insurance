@@ -1,0 +1,172 @@
+// Override Bootstrap variables
+@import 'bootstrap-variables';
+
+// Import Bootstrap source files from node_modules
+@import 'bootstrap/scss/bootstrap';
+
+// Custom variables
+$primary-color: #1e4d2b;
+$secondary-color: #fff;
+$body-bg: #f8f9fa;
+$link-color: #2c3e50;
+$link-hover-color: #34495e;
+
+// Global styles
+body {
+  background-color: $body-bg;
+  margin: 0;
+  padding-top: 56px; // Adjust this value based on your navbar height
+  margin-bottom: 60px; // Margin bottom by footer height
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+a {
+  color: $link-color;
+  &:hover {
+    color: $link-hover-color;
+  }
+}
+
+// Header styles
+#app-header {
+  .navbar {
+    background-color: $primary-color !important;
+    padding: 0.5rem 1rem;
+
+    .navbar-brand {
+      color: $secondary-color;
+      font-weight: bold;
+      &:hover {
+        color: darken($secondary-color, 10%);
+      }
+    }
+
+    .navbar-nav {
+      .nav-item {
+        margin-right: 0.5rem;
+
+        .nav-link {
+          color: $secondary-color;
+          padding: 0.5rem 1rem;
+          transition: all 0.3s ease;
+
+          &:hover,
+          &:focus {
+            color: darken($secondary-color, 10%);
+          }
+
+          &.active {
+            color: darken($secondary-color, 15%);
+          }
+        }
+      }
+
+      .dropdown {
+        .dropdown-toggle::after {
+          vertical-align: middle;
+        }
+
+        .dropdown-menu {
+          background-color: $primary-color;
+          border: none;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+          .dropdown-item {
+            color: $secondary-color;
+
+            &:hover,
+            &:focus {
+              background-color: darken($primary-color, 10%);
+              color: darken($secondary-color, 10%);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .loading-bar {
+    height: 3px;
+    background-color: darken($secondary-color, 10%);
+  }
+}
+
+// Footer styles
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px; // Set the fixed height of the footer here
+  line-height: 60px; // Vertically center the text there
+  background-color: $primary-color;
+  color: $secondary-color;
+  padding: 1rem;
+  border-top: 1px solid #e5e5e5;
+
+  p {
+    margin-bottom: 0;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 767.98px) {
+  #app-header {
+    .navbar {
+      .navbar-nav {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+
+        .nav-item {
+          margin-right: 0;
+        }
+
+        .dropdown-menu {
+          position: absolute;
+        }
+      }
+    }
+  }
+
+  .footer {
+    text-align: center;
+  }
+}
+
+// Utility classes
+.hand {
+  cursor: pointer;
+}
+
+.readonly {
+  background-color: #eee;
+  opacity: 1;
+}
+
+// Padding helpers
+.pad {
+  padding: 10px;
+}
+.pad-sm {
+  padding: 5px;
+}
+.pad-lg {
+  padding: 20px;
+}
+
+// Margin helpers
+.voffset {
+  margin-top: 2px;
+}
+.voffset-md {
+  margin-top: 10px;
+}
+.voffset-lg {
+  margin-top: 20px;
+}
+
+/* jhipster-needle-scss-add-main JHipster will add new css style */

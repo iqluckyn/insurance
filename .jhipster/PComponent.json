@@ -1,0 +1,32 @@
+{
+  "annotations": {
+    "changelogDate": "20240826195109"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "entityTableName": "p_component",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "name": "PComponent",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "policyComponent",
+      "otherEntityRelationshipName": "component",
+      "relationshipName": "policyComponent",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

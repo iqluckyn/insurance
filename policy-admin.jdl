@@ -1,0 +1,138 @@
+entity Farmer {
+  firstname String required
+  lastname String required
+  email String required
+  position String required
+  phone String
+  address String
+  city String
+  province String
+  country String
+  postalCode String
+  registrationDate Instant
+}
+
+entity Business {
+  registeredName String required
+  organisationName String
+  vatNumber String
+  createdAt Instant
+  updatedAt Instant
+}
+
+entity BusinessType {
+  name String required
+  description String
+}
+
+entity InsuredPolicy {
+  policyNumber String required
+  startDate Instant required
+  endDate Instant required
+  premiumAmount BigDecimal required
+  coverageAmount BigDecimal required
+  status PolicyStatus required
+}
+
+entity PolicyClaim {
+  claimNumber String required
+  claimDate Instant required
+  amountClaimed BigDecimal required
+  status ClaimStatus required
+}
+
+entity PComponent {
+  name String required
+  description String
+}
+
+entity PolicyComponent {
+  componentValue BigDecimal required
+  createdAt Instant
+  updatedAt Instant
+}
+
+entity Farm {
+  latitude Double required
+  longitude Double required
+  cellIdentifier String required
+}
+
+entity Product {
+  productName String required
+  productCode String required
+  productDescription String
+  isActive Boolean
+  createdAt Instant
+  updatedAt Instant
+}
+
+entity CropType {
+  cropName String required
+}
+
+entity Season {
+  seasonName String required
+  startDate LocalDate required
+  endDate LocalDate required
+  isActive Boolean
+}
+
+entity Quotation {
+  startOfRiskPeriod LocalDate required
+  lengthOfRiskPeriod Integer required
+  depth Integer required
+  claimsFrequency Integer required
+  insuredValue BigDecimal required
+  bestPremium BigDecimal required
+  insuredRate BigDecimal required
+  insuredPremium BigDecimal required
+  createdAt Instant
+  updatedAt Instant
+}
+
+entity QuotationStatus {
+  statusName String required
+  statusCode String required
+  description String
+  isActive Boolean
+}
+
+enum PolicyStatus {
+  PENDING, ACTIVE, EXPIRED, CANCELLED
+}
+
+enum ClaimStatus {
+  OPEN, CLOSED, REJECTED
+}
+
+
+relationship ManyToOne {
+  InsuredPolicy{insuredFarmer} to Farmer
+  PolicyClaim{policy(policyNumber)} to InsuredPolicy
+  Farmer{user(login)} to User with builtInEntity
+  Farm{cropType(cropName)} to CropType
+  InsuredPolicy{farm} to Farm
+  Quotation{season(seasonName)} to Season
+  Quotation{farmer(firstname)} to Farmer
+}
+
+relationship ManyToMany {
+  InsuredPolicy{components} to PolicyComponent{policies}
+}
+
+relationship OneToMany {
+  BusinessType to Business{businessType(name)}
+  Quotation  to InsuredPolicy{quotation}
+  PComponent to PolicyComponent{component(name)}
+  Farmer to Farm{farmer}
+  Business to Farmer{business(registeredName)}
+  CropType to Season{cropType}
+  Product to Quotation{product}
+  Business to Quotation{business}
+  QuotationStatus{quotations} to Quotation{quotationStatus(statusCode)}
+}
+
+dto * with mapstruct
+paginate * with pagination
+service * with serviceImpl

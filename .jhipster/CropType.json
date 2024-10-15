@@ -1,0 +1,27 @@
+{
+  "annotations": {
+    "changelogDate": "20240826195113"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "cropName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "CropType",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "season",
+      "otherEntityRelationshipName": "cropType",
+      "relationshipName": "season",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

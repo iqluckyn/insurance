@@ -1,0 +1,43 @@
+{
+  "annotations": {
+    "changelogDate": "20240826195108"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "claimNumber",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "claimDate",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "amountClaimed",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "ClaimStatus",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "OPEN,CLOSED,REJECTED"
+    }
+  ],
+  "name": "PolicyClaim",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityField": "policyNumber",
+      "otherEntityName": "insuredPolicy",
+      "relationshipName": "policy",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

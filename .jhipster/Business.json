@@ -1,0 +1,57 @@
+{
+  "annotations": {
+    "changelogDate": "20240826195105"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "registeredName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "organisationName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "vatNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdAt",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "updatedAt",
+      "fieldType": "Instant"
+    }
+  ],
+  "name": "Business",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "farmer",
+      "otherEntityRelationshipName": "business",
+      "relationshipName": "farmer",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "quotation",
+      "otherEntityRelationshipName": "business",
+      "relationshipName": "quotation",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "businessType",
+      "relationshipName": "businessType",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

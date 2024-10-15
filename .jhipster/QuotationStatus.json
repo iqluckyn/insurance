@@ -1,0 +1,40 @@
+{
+  "annotations": {
+    "changelogDate": "20240826195116"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "statusName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "statusCode",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isActive",
+      "fieldType": "Boolean"
+    }
+  ],
+  "name": "QuotationStatus",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "quotation",
+      "otherEntityRelationshipName": "quotationStatus",
+      "relationshipName": "quotations",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

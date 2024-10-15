@@ -1,0 +1,71 @@
+{
+  "annotations": {
+    "changelogDate": "20240826195107"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "policyNumber",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "startDate",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "endDate",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "premiumAmount",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "coverageAmount",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "PolicyStatus",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "PENDING,ACTIVE,EXPIRED,CANCELLED"
+    }
+  ],
+  "name": "InsuredPolicy",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "farmer",
+      "relationshipName": "insuredFarmer",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "farm",
+      "relationshipName": "farm",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "policyComponent",
+      "otherEntityRelationshipName": "policies",
+      "relationshipName": "components",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "quotation",
+      "relationshipName": "quotation",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Added the constraints for entity InsuredPolicy.
+    -->
+    <changeSet id="20240826195107-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="insured_farmer_id"
+                                 baseTableName="insured_policy"
+                                 constraintName="fk_insured_policy__insured_farmer_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="farmer"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="farm_id"
+                                 baseTableName="insured_policy"
+                                 constraintName="fk_insured_policy__farm_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="farm"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="insured_policy_id"
+                                 baseTableName="rel_insured_policy__components"
+                                 constraintName="fk_rel_insured_policy__components__insured_policy_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="insured_policy"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="components_id"
+                                 baseTableName="rel_insured_policy__components"
+                                 constraintName="fk_rel_insured_policy__components__components_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="policy_component"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="quotation_id"
+                                 baseTableName="insured_policy"
+                                 constraintName="fk_insured_policy__quotation_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="quotation"
+                                 />
+    </changeSet>
+</databaseChangeLog>
